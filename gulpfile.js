@@ -7,7 +7,7 @@ var gulp = require("gulp"),
 
 var webpack = require("gulp-webpack");
 var webpackConfig = require("./webpack.config");
-var dllConfig = require("./ddl.config");
+var dllConfig = require("./webpack.ddl.config");
 
 gulp.task("default",["clean", "watch", "sass_watch", "sass", "webpack"]);
 gulp.task("build", ["clean", "sass", "webpack"]);
@@ -48,6 +48,6 @@ gulp.task("webpack", function () {
 	return gulp
 			.src("./")
 			.pipe(webpack(webpackConfig))
-			.pipe(uglify())
+			// .pipe(uglify())
 			.pipe(gulp.dest("./build/js"))
 })
